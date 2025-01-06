@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chikkamagaluru Football Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        section {
+            padding: 60px 0;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #003f88;
+            color: #fff;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ffcc00;
+            transform: scale(1.05);
+        }
+
+        /* Header Section */
+        header {
+            background-color: #123f74;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            animation: slideIn 1.9s ease-out;
+            border-top-left-radius: 30px; border-top-right-radius: 30px;
+            border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        header .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        header .logo img {
+            max-width: 150px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .nav a {
+            color: white;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #ffcc00;
+        }
+
+        /* About Section */
+        .about {
+            background-color: #fff;
+        }
+
+        .about .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .about img:hover {
+            transform: scale(1.05);
+        }
+
+        .about .text {
+            flex: 1;
+        }
+
+        /* Teams Section */
+        .teams {
+            background-color: #000000;
+        }
+
+        .teams .team-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .team-card {
+            background: rgb(255, 252, 252);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(132, 73, 73, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Futsal Section */
+        .futsal {
+            background: #ffcc00;
+            color: #003f88;
+        }
+
+        .futsal h2 {
+            color: #003f88;
+        }
+
+        .futsal-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .futsal-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .futsal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Facilities Section */
+        .facilities {
+            background-color: #e5e5e5;
+        }
+
+        .facilities h2 {
+            color: #003f88;
+        }
+
+        .facilities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .facility-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #003f88;
+            color: white;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contact-form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background: white;
+            color: #003f88;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #ffcc00;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000000;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Social Media Section */
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            
+                <img src="cfa...images.jpeg" alt="Rounded Image">
+            
+        </div>
+
+        <h1> Chikkamagaluru Football Academy</h1>
+        <p>Welcome to the official website of [Chikkamagaluru Football Academy]</p>
+        <nav class="nav">
+            <a href="#about">About</a>
+            <a href="#teams">Teams</a>
+            <a href="#futsal">Futsal</a>
+            <a href="#facilities">Facilities</a> <!-- Added link -->
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="content">
+                <img height="500" width="100%" src="./boys at turf.jpeg" alt="About Us">
+                <div class="text">
+                    <h2>About Us</h2>
+                    <p>In 2018, Chikkamagaluru Football Academy was founded by Mr. Vikas V Hallali to bring passion and rise talent among the youth. We currently field men’s, women’s & youth teams (under 9, 11, 13, 15, 17, 19 & 21 categories)
+                        We believe in the power of football to bring people together, build lasting friendships, and inspire the next generation of players. Join us and be part of our journey as we work to make an impact both on and off the pitch..</p>
+                    <a href="#Contact Us" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teams Section -->
+    <section class="teams" id="teams">
+        <div class="container">
+            <h2>Our Teams</h2>
+            <div class="team-list">
+                <div class="team-card">
+                    <img src="./youth teams.jpg" alt="Youth Team">
+                    <h3>Youth Team</h3>
+                    <p>Building future together</p>
+                </div>
+                <div class="team-card">
+                    <img src="girls team.jpeg" alt="Girls Team">
+                    <h3>Girls Team</h3>
+                    <p>Empowering young women</p>
+                </div>
+                <div class="team-card">
+                    <img src="./youth team1.jpeg" alt="Mens Team">
+                    <h3>Mens Team</h3>
+                    <p>Future talents</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section class="facilities" id="facilities">
+        <div class="container">
+            <h2>Our Facilities</h2>
+            <div class="facilities-list">
+                <div class="facility-card">
+                    <h3>Football Pitch</h3>
+                    <img 
+                    width="300"
+                    src="./turf boy.jpg" alt="football 7v7 court">
+                    <p>State-of-the-art football pitch with top-quality turf for training and matches.</p>
+                </div>
+                <div class="facility-card">
+                    <h3>badminton court</h3>
+                    <img
+                    width="300" 
+                    src="./badminton club Small.jpeg" alt="">
+                    <p>Dedicated badminton courts for indoor badminton and recreational play.</p>
+                </div>
+                <div class="facility-card">
+                    <h3>indoor cricket net</h3>
+                    <img src="./cricket turf picss.jpeg" alt="">
+                    <p>Fully equipped indoor net cricket.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Futsal Section -->
+    <section class="futsal" id="futsal">
+        <div class="container">
+            <h2>Futsal COMING SOON</h2>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <img height="100" width="90" margin="100px" src="cfa...images.jpeg" alt="">
+        <div class="container">
+            <h2>Follow Us and Contact Us on</h2>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/19ErfX8WCu/" target="_blank">Facebook</a>
+                <a href="https://www.instagram.com/chikkmagalurufootballacademy?igsh=OGUxMHBhamY0cnVu" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Chikkamagaluru Football Academy. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
